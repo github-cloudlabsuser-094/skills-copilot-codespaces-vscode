@@ -1,0 +1,41 @@
+# Create a GitHub action to email a report from a file at 6 a.m. daily
+# This is a simple example for demonstration purposes only
+# It is not recommended to embed credentials directly in the workflow file
+# https://docs.github.com/en/actions/reference/encrypted-secrets
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsenv
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsecrets
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsecrets
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsecrets
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsecrets
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsecrets
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsecrets
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsecrets
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsecrets
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsecrets
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsecrets
+name: Email Report
+on:
+  schedule:
+    # Run at 6 a.m. UTC daily
+    - cron: '0 6 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Get the date
+      - name: Get the date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      # Get the user's email address
+      - name: Get the email address
+        id: email
+        run: echo "::set-output name=email::$(git config user.email)"
+      # Get the user's name
+      - name: Get the name
+        id: name
+        run: echo "::set-output name=name::$(git config user.name)"
+      # Create the report
+      - name:
